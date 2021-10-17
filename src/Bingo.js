@@ -5,10 +5,12 @@ import './App.css';
 
 const config = {
     emoji: ['🎈', '🎊', '🎉', '🎁', '⭐', '🦃'],
-    elementCount: 5,
-    spread: 150,
+    elementCount: 10,
     zIndex: 9999,
-    lifetime: 300
+    lifetime: 300,
+    angle: 90,
+    spread: 40,
+    springAnimation: false
 };
 
 function Tile({ id, children, onToggle, isSet }) {
@@ -31,7 +33,6 @@ class Bingo extends Component {
             won: false,
         }
         this.state.checked = { ...this.state.checked, [this.state.center_id]: true };
-
         const bbb = [];
         for (let index = 1; index < 100; index++) {
             bbb.push(index);
@@ -42,10 +43,6 @@ class Bingo extends Component {
             {}
         );
         this.state = { ...this.state, data: rand_data };
-    }
-
-    componentDidMount() {
-        // this.reward.rewardMe()
     }
 
     render() {
@@ -66,7 +63,6 @@ class Bingo extends Component {
                 this.setState(state => {
                     const checked = { ...this.state.checked, [id]: !this.state.checked[id] };
                     const won = isWon(checked);
-                    console.log(won)
                     if (won) {
                         this.reward.rewardMe()
                     }
@@ -78,9 +74,6 @@ class Bingo extends Component {
                 })
             }
         }
-
-        // console.log(this.state)
-
         let map = Array.prototype.map;
         let is_free_item = false;
         return (

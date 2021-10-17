@@ -1,3 +1,6 @@
+body::-webkit-scrollbar {
+    display: none;
+}
 #root {
   height: 100vh;
   display: flex;
@@ -74,7 +77,11 @@
     width: 40px;
     height: 40px;
 }
-
+.tile:before {
+    content: "";
+    float: left;
+    padding-top: 100%;
+}
 .tile--set {
     background: #75b1d4;
 }
