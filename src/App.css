@@ -1,5 +1,17 @@
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(95, 68, 155);
+}
 .App {
   text-align: center;
+  padding: 10px;
+  /* width: 100%; */
+}
+.app_title {
+  color: white;
 }
 
 .App-logo {
@@ -34,5 +46,74 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, auto);
+    /* grid-template-columns: 60px 60px 60px 60px 60px; */
+    /* grid-auto-columns: 20%; */
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* min-height: 40px; */
+    font-weight: 600;
+    font-size: 20px;
+    border: 3px #ef873d solid;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+    background-color: white;
+    box-shadow: 0px 0px 10px #ffffff88;
+    width: 40px;
+    height: 40px;
+}
+
+.tile--set {
+    background: #75b1d4;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    pointer-events: none;
+}
+.copyright_title {
+  color: white;
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 426px) {
+  .App {
+    width: 100%;
+  }
+  .tile { 
+    width: auto;
+    height: auto;
+  }
+  .wrapper {
+      grid-gap: 2%;
+      grid-template-columns: repeat(5, 18.4%);
+  }
+  .tile {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .tile {
+    font-size: 14px;
   }
 }
