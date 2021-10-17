@@ -1,3 +1,8 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body::-webkit-scrollbar {
   display: none;
 }
@@ -76,8 +81,6 @@ h1.win_title {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(5, auto);
-  /* grid-template-columns: 60px 60px 60px 60px 60px; */
-  /* grid-auto-columns: 20%; */
 }
 
 .tile {
@@ -85,7 +88,6 @@ h1.win_title {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  /* min-height: 40px; */
   font-weight: 600;
   font-size: 20px;
   border: 3px #ef873d solid;
@@ -94,8 +96,8 @@ h1.win_title {
   overflow-wrap: anywhere;
   background-color: white;
   box-shadow: 0px 0px 10px #ffffff88;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
 }
 
 .tile:before {
