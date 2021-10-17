@@ -1,6 +1,7 @@
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
+
 #root {
   height: 100vh;
   display: flex;
@@ -8,13 +9,32 @@ body::-webkit-scrollbar {
   justify-content: center;
   background-color: rgb(95, 68, 155);
 }
+
 .App {
   text-align: center;
   padding: 10px;
-  /* width: 100%; */
+  position: relative;
 }
+
 .app_title {
   color: white;
+}
+
+h1.win_title {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  left: 0;
+  color: #fffb00;
+  text-shadow: -3px 0px 15px #ff0000, 3px 0px 15px #0000ff;
+}
+
+.display-hide {
+  display: none;
+}
+
+.display-show {
+  display: block;
 }
 
 .App-logo {
@@ -53,50 +73,53 @@ body::-webkit-scrollbar {
 }
 
 .wrapper {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(5, auto);
-    /* grid-template-columns: 60px 60px 60px 60px 60px; */
-    /* grid-auto-columns: 20%; */
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, auto);
+  /* grid-template-columns: 60px 60px 60px 60px 60px; */
+  /* grid-auto-columns: 20%; */
 }
 
 .tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    /* min-height: 40px; */
-    font-weight: 600;
-    font-size: 20px;
-    border: 3px #ef873d solid;
-    border-radius: 10px;
-    cursor: pointer;
-    overflow-wrap: anywhere;
-    background-color: white;
-    box-shadow: 0px 0px 10px #ffffff88;
-    width: 40px;
-    height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  /* min-height: 40px; */
+  font-weight: 600;
+  font-size: 20px;
+  border: 3px #ef873d solid;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  background-color: white;
+  box-shadow: 0px 0px 10px #ffffff88;
+  width: 40px;
+  height: 40px;
 }
+
 .tile:before {
-    content: "";
-    float: left;
-    padding-top: 100%;
+  content: "";
+  float: left;
+  padding-top: 100%;
 }
+
 .tile--set {
-    background: #75b1d4;
+  background: #75b1d4;
 }
 
 canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  pointer-events: none;
 }
+
 .copyright_title {
   color: white;
   margin-top: 50px;
@@ -106,13 +129,13 @@ canvas {
   .App {
     width: 100%;
   }
-  .tile { 
+  .tile {
     width: auto;
     height: auto;
   }
   .wrapper {
-      grid-gap: 2%;
-      grid-template-columns: repeat(5, 18.4%);
+    grid-gap: 2%;
+    grid-template-columns: repeat(5, 18.4%);
   }
   .tile {
     font-size: 16px;
