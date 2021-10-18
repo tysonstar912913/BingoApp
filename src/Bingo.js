@@ -231,35 +231,36 @@ class Bingo extends Component {
         );
     };
 
+    toggle = id => {
+        if (parseInt(id) !== this.state.center_id) {
+            this.setState(prevState => {
+                let state = prevState;
+                if (state.data[id] === state.selected_card) {
+                    const checked = { ...state.checked, [id]: !state.checked[id] };
+                    let selectable_numbers = state.selectable_numbers;
+                    const remove_index = selectable_numbers.indexOf(state.selected_card);
+                    if (remove_index > -1) {
+                        selectable_numbers.splice(remove_index, 1);
+                    }
+                    this.start_tick();
+                    const won = this.isWon(checked);
+                    if (won) {
+                        this.you_are_winner();
+                    }
+                    return {
+                        ...state,
+                        checked,
+                        won,
+                        selectable_numbers: selectable_numbers,
+                    }
+                }
+            })
+        }
+    }
+
     render() {
         let is_free_item = false;
-        const { randomAnimation, won, win_title_visibility, data, delay_time, range, selected_card } = this.state;
-        const toggle = id => {
-            if (parseInt(id) !== this.state.center_id) {
-                this.setState(prevState => {
-                    let state = prevState;
-                    if (state.data[id] === state.selected_card) {
-                        const checked = { ...state.checked, [id]: !state.checked[id] };
-                        let selectable_numbers = state.selectable_numbers;
-                        const remove_index = selectable_numbers.indexOf(state.selected_card);
-                        if (remove_index > -1) {
-                            selectable_numbers.splice(remove_index, 1);
-                        }
-                        this.start_tick();
-                        const won = this.isWon(checked);
-                        if (won) {
-                            this.you_are_winner();
-                        }
-                        return {
-                            ...state,
-                            checked,
-                            won,
-                            selectable_numbers: selectable_numbers,
-                        }
-                    }
-                })
-            }
-        }
+        const { randomAnimation, won, win_title_visibility, data, delay_time, selected_card } = this.state;
         return (
             <div className="App">
                 <Row>
@@ -295,7 +296,7 @@ class Bingo extends Component {
                                 key={id}
                                 id={id}
                                 isSet={is_free_item ? true : !!this.state.checked[id]}
-                                onToggle={() => toggle(id)}
+                                onToggle={() => this.toggle(id)}
                             >
                                 {is_free_item ? 'Free' : this.state.data[id]}
                             </Tile>
@@ -307,7 +308,7 @@ class Bingo extends Component {
                     type="emoji"
                     config={config}
                 >
-                    <h5 className="copyright_title">Andrew Kim @ 10/21/2021</h5>
+                    <h5 className="copyright_title">Andrew Kim @ 10/18/2021</h5>
                 </Reward>
             </div>
         );
