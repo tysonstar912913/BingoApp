@@ -3,8 +3,17 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+body {
+  background-color: rgb(95, 68, 155);
+}
+
 body::-webkit-scrollbar {
   display: none;
+}
+
+.padding-0 {
+  padding: 0;
 }
 
 #root {
@@ -12,7 +21,6 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(95, 68, 155);
 }
 
 .App {
@@ -23,6 +31,11 @@ body::-webkit-scrollbar {
 
 .app_title {
   color: white;
+}
+
+.rand_card h3 {
+  color: white;
+  margin-bottom: 0;
 }
 
 h1.win_title {
@@ -80,7 +93,7 @@ h1.win_title {
 .wrapper {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .tile {
@@ -93,11 +106,13 @@ h1.win_title {
   border: 3px #ef873d solid;
   border-radius: 10px;
   cursor: pointer;
-  overflow-wrap: anywhere;
+  /* overflow-wrap: anywhere; */
   background-color: white;
   box-shadow: 0px 0px 10px #ffffff88;
-  width: 70px;
-  height: 70px;
+  /* width: 70px;
+  height: 70px; */
+  width: auto;
+  height: auto;
 }
 
 .tile:before {
@@ -127,6 +142,16 @@ canvas {
   margin-top: 50px;
 }
 
+.progress_bar {
+  margin: 10px 0px;
+}
+
+.progress-bar {
+  -webkit-transition: width 1s linear;
+  -o-transition: width 1s linear;
+  transition: width 1s linear;
+}
+
 @media only screen and (max-width: 426px) {
   .App {
     width: 100%;
@@ -140,6 +165,9 @@ canvas {
     grid-template-columns: repeat(5, 18.4%);
   }
   .tile {
+    font-size: 16px;
+  }
+  .rand_card h3 {
     font-size: 16px;
   }
 }
